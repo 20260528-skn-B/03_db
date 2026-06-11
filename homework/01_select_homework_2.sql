@@ -26,6 +26,21 @@ limit 3;
 #
 # ### Q2.
 #
-# 재직 중인 ‘대리’들의 직원명, 직급명, 급여, 사원번호, 이메일, 전화번호, 입사일을 출력하세요.
+# 재직 중인 ‘대리’들의
+# 직원명, 직급명, 급여, 사원번호, 이메일, 전화번호, 입사일을 출력하세요.
 #
 # 단, 급여를 기준으로 내림차순 출력하세요.
+
+select
+    employee.EMP_NAME,
+    job.JOB_NAME,
+    employee.SALARY,
+    employee.EMP_ID,
+    employee.EMAIL,
+    employee.PHONE,
+    employee.HIRE_DATE
+from employee join job on employee.JOB_CODE = job.JOB_CODE
+where employee.ENT_YN = 'N'
+and job.JOB_NAME = '대리'
+order by
+    employee.SALARY desc ;
